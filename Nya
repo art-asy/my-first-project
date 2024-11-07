@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid3</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
+            width: 80vw;
+            height: 80vh;
+        }
+
+ 
+        .div1 { 
+            grid-area: 1 / 1 / 2 / 6; 
+            background-color: #1478dd; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .div2 { 
+            grid-area: 2 / 1 / 6 / 2; 
+            background-color: #1fe0f0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .div3 { 
+            grid-area: 5 / 2 / 6 / 6; 
+            background-color: #808080; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .div4 { 
+            grid-area: 2 / 2 / 5 / 6; 
+            background-color: #d9d9d9; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+   
+        @media (max-width: 768px) {
+            .div2 {
+                display: none;
+            }
+
+            .div3 {
+                grid-area: 2 / 1 / 5 / 6;
+            }
+
+            .div4 {
+                grid-area: 5 / 1 / 6 / 6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="div1"><span class="text">Navbar</span></div>
+        <div class="div2"><span class="text">Sidebar</span></div>
+        <div class="div3"><span class="text">Main content</span></div>
+        <div class="div4"><span class="text">Footer</span></div>
+    </div>
+</body>
+</html>

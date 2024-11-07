@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Layout Example with Features and Team</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .header {
+            background-color: #2a2a5a;
+            color: white;
+            height: 100px;
+        }
+
+        .home, .features, .articles, .portfolio, .showcase, .team, .contact-form, .footer {
+            background-color: #f8f9fa;
+            margin-bottom: 10px;
+        }
+
+        .home { background-color: #d6e0f5; }
+        .features { background-color: #f9f9f9; }
+        .articles { background-color: #99aacc; }
+        .portfolio { background-color: #809bb1; }
+        .showcase { background-color: #667d99; }
+        .team { background-color: #f3f4f6; }
+        .contact-form { background-color: #333f66; color: white; }
+        .footer { background-color: #2a2a5a; color: white; height: 50px; }
+        
+
+
+        /* Стилі для FEATURES */
+        .features-container {
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .features-container p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .features-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .features-col {
+            width: 23%;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            font-size: 36px;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .features-col h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .features-col p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Стилі для TEAM */
+        .team-container {
+            max-width: 960px; 
+            margin: 0 auto; 
+            text-align: center;
+        }
+
+        .team-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .team-container .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .team-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-col {
+            width: 30%;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 2px solid #ddd;
+            text-align: center;
+            margin: 10px;
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gray-background {
+            background-color: #e0e0e0;
+        }
+
+        img {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover; 
+        }
+
+        .team-col h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .team-col p {
+            font-size: 16px;
+            color: #555;
+            flex-grow: 1; 
+        }
+
+        @media (max-width: 480px) {
+             .team-col {
+                width: 100%;
+            }
+            .features-col {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+             .team-col {
+                width: 48%;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 960px) {
+            .team-col {
+                width: 30%;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 960px) {
+            .features-col {
+                width: 48%;
+            }
+        }
+        
+           
+        .portfolio-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .portfolio-box {
+            flex: 1 1 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color: #ccc;
+            color: white;
+            font-size: 20px;
+        }
+
+        .portfolio-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .box.blue { background-color: lightblue; }
+        .box.yellow { background-color: yellow; color: black; }
+        .box.magenta { background-color: magenta; }
+
+        @media (max-width: 480px) {
+            .portfolio-box {
+                min-width: 100%;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .portfolio-box {
+                flex: 1 1 calc(50% - 10px);
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 960px) {
+            .portfolio-box {
+                flex: 1 1 30%;
+            }
+        }
+
+        @media (min-width: 961px) and (max-width: 1200px) {
+            .portfolio-box {
+                flex: 1 1 20%;
+            }
+        }
+        
+               @media (min-width: 1201px) {
+            .portfolio-box {
+                flex: 1 1 18%;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section header">HEADER</div>
+        <div class="section home">HOME</div>
+        <div class="section features">
+            <section class="features-container">
+                <h2>FEATURES</h2>
+                <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal.</p>
+                <div class="features-row">
+                    <div class="features-col">
+                        <div class="icon">📷</div>
+                        <h3>Experience</h3>
+                        <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal. After the first hundred projects to break the promise already impossible.</p>
+                    </div>
+                    <div class="features-col">
+                        <div class="icon">💬</div>
+                        <h3>Communication</h3>
+                        <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal. After the first hundred projects to break the promise already impossible.</p>
+                    </div>
+                    <div class="features-col">
+                        <div class="icon">👥</div>
+                        <h3>Responsibility</h3>
+                        <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal. After the first hundred projects to break the promise already impossible.</p>
+                    </div>
+                    <div class="features-col">
+                        <div class="icon">📅</div>
+                        <h3>Deadlines</h3>
+                        <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal. After the first hundred projects to break the promise already impossible.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="section articles">ARTICLES</div>
+                <div class="section articles">ARTICLES</div>
+        <div class="section portfolio">
+            <section class="portfolio-container">
+                <div class="portfolio-box blue">
+                    <img src="images12.jfif" alt="Portfolio Image 1">
+                </div>
+                <div class="portfolio-box yellow">
+                    <img src="images5.jfif" alt="Portfolio Image 2">
+                </div>
+                <div class="portfolio-box magenta">
+                    <img src="images6.jfif" alt="Portfolio Image 3">
+                </div>
+                <div class="portfolio-box blue">
+                    <img src="images7.jfif" alt="Portfolio Image 4">
+                </div>
+                <div class="portfolio-box yellow">
+                    <img src="images8.jfif" alt="Portfolio Image 5">
+                </div>
+                <div class="portfolio-box magenta">
+                    <img src="images9.jfif" alt="Portfolio Image 6">
+                </div>
+                <div class="portfolio-box magenta">
+                    <img src="images10.jfif" alt="Portfolio Image 7">
+                </div>
+                <div class="portfolio-box magenta">
+                    <img src="images11.jfif" alt="Portfolio Image 8">
+                </div>
+                </section>
+                </div> 
+            
+           <div class="section showcase">SHOWCASE</div>
+
+        <div class="section team">
+            <section class="team-container">
+                <h2> OUR TEAM </h2>
+                <p class="subtitle">After the first 50 completed projects to make a mistake with the deadlines almost unreal.</p>
+                
+                <div class="team-row">
+                    <div class="team-col">
+                        <img src="images1.jfif" alt="Team member 1">
+                        <h3>Daniel Raynolds</h3>
+                        <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal. After the first hundred projects to break the promises already impossible.</p>
+                    </div>
+
+                    <div class="team-col gray-background">
+                        <img src="images2.jfif" alt="Team member 2">
+                        <h3>Liam Robertson</h3>
+                        <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal. After the first hundred projects to break the promises already impossible.</p>
+                    </div>
+
+                    <div class="team-col">
+                        <img src="images3.jfif" alt="Team member 3">
+                        <h3>Anna Robs</h3>
+                        <p>After the first 50 completed projects to make a mistake with the deadlines almost unreal. After the first hundred projects to break the promises already impossible.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div> 
+    <div class="section contact-form">CONTACT FORM</div>
+        <div class="section footer">FOOTER</div>
+</body>
+</html>
